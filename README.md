@@ -4,7 +4,7 @@
 
 ### Hackton
 
-This is a Lambda EU3 Labs project
+This is a Lambda EU4 Labs project
 
 # hackton-server
 
@@ -62,7 +62,7 @@ This app was built with
 * **Ayomide Jones** - *Team member* - [github](https://github.com/Ayormeday)
 
 ## Versioning
-This is version 0.0.2 (Release canvas 2)
+This is version 2.0.1
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
