@@ -1,7 +1,7 @@
 {
   "name": "hackton-backend",
-  "version": "1.0.0",
-  "description": "This is a Lambda EU3 Labs project\r # hackton-server\r A comprehensive portal for hackathons where students can submit their work and judges can evaluate in one place",
+  "version": "2.0.1",
+  "description": "This is a Labs project built in LabsEU4\r # hackton-server\r A comprehensive portal for hackathons where students can submit their work and judges can evaluate in one place",
   "main": "index.js",
   "scripts": {
     "test": "cross-env DB_ENV=test jest --detectOpenHandles --testTimeout=20000 --coverage --runInBand --forceExit",
@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LABS-EU3/hackton-backend.git"
+    "url": "git+https://github.com/LABS-EU4/hackathon-portal-server.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LABS-EU3/hackton-backend/issues"
+    "url": "https://github.com/LABS-EU4/hackathon-portal-server/issues"
   },
-  "homepage": "https://github.com/LABS-EU3/hackton-backend#readme",
+  "homepage": "https://github.com/LABS-EU4/hackathon-portal-server#readme",
   "dependencies": {
     "@sendgrid/mail": "^6.5.1",
     "app-root-path": "^3.0.0",
