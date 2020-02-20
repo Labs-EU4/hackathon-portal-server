@@ -35,6 +35,7 @@ module.exports = {
   test: {
     client: 'pg',
     connection: process.env.DATABASE_TEST_URL,
+    // Change connection to localhost:PORT where PORT is the port that a local instance of postgres runs on
     migrations: {
       directory: './data/migrations'
     },
