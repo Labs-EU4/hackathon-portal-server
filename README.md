@@ -35,19 +35,19 @@ A comprehensive portal for hackathons where students can submit their work and j
 8. [Deployment](#Deployment 'Deployment')
 9. [Tech stack](#Tech-stack 'Tech stack')
 10. [Authors](#Authors 'Authors')
-11. [Versioning](#Versioning 'Versioning')
-12. [License](#License 'License')
-13. [API Documentation](#API-Documentation 'API Documentation')
-14. [Acknowledgments](#acknowledgments 'Acknowledgments')
+11. [API Documentation](#API-Documentation 'API Documentation')
+12. [Acknowledgments](#acknowledgments 'Acknowledgments')
+13. [Versioning](#Versioning 'Versioning')
+14. [License](#License 'License')
 
 ## Getting Started
 
-This repository contains only the frontend implementation of the Hackathon project. You can click **[here](https://github.com/Labs-EU4/hackathon-portal-client)** to check the backend implementation.
+This repository contains only the frontend implementation of the Hackathon project. You can click **[here](https://github.com/Labs-EU4/hackathon-portal-server.git)** to check the backend implementation.
 
 Start by cloning the repository to your local machine
 
 ```bash
-git clone https://github.com/Labs-EU4/hackathon-portal-client
+git clone https://github.com/Labs-EU4/hackathon-portal-server.git
 
 ```
 
@@ -135,6 +135,7 @@ This app was built with
 |                                          [Anthony Campbell](https://anthonycampbell.dev)                                          |                                         [AbdelIdir ](https://github.com/AbdelIdir)                                          |                                               [Ekanem David](https://github.com/dueka)                                                |
 | :-------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------: |
 |      [<img src="https://avatars3.githubusercontent.com/u/45029641?s=400&v=4" width = "200" />](https://anthonycampbell.dev)       |   [<img src="https://avatars0.githubusercontent.com/u/53605229?s=460&v=4" width = "200" />](https://github.com/AbdelIdir)   |          [<img src="https://avatars2.githubusercontent.com/u/38921132?s=460&v=4" width = "200" />](https://github.com/dueka)          |
+|                                                            Team Leader                                                            |                                                             Dev                                                             |                                                                  Dev                                                                  |
 |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AnthonyJCampbell)                   |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AbdelIdir)                    |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/dueka)                           |
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/anthonyjcampbell/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/idir-abdel/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/ekanem-david-8711719a) |
 
@@ -143,12 +144,22 @@ This app was built with
 |                                                                                          [Emma Andrews](https://github.com/ELAndrews)                                                                                          |                                        [John Afolabi](https://github.com/john-afolabi)                                        |                                             [Karim Bertacche](https://github.com/john-afolabi)                                             |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
 | [<img src="https://media-exp1.licdn.com/dms/image/C5603AQFRpv9tGUnasQ/profile-displayphoto-shrink_200_200/0?e=1587600000&v=beta&t=mN_NQjxyyVHRDkl0n-OpMoXj1qkYcuYGB5rQIPTBx7c" width = "200" />](https://github.com/ELAndrews) |  [<img src="https://avatars3.githubusercontent.com/u/19263499?s=460&v=4" width = "200" />](https://github.com/john-afolabi)   |        [<img src="https://avatars3.githubusercontent.com/u/49835145?s=460&v=4" width = "200" />](https://github.com/KarimBertacche)        |
+|                                                                                                              Dev                                                                                                               |                                                              Dev                                                              |                                                                    Dev                                                                     |
 |                                                                     [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/ELAndrews)                                                                     |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/john-afolabi)                   |                        [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/KarimBertacche)                         |
 |                                            [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/emma-andrews-b26768169/)                                             | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/john-afolabi/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/karim-bertacche-64b270156/) |
 
-## Versioning
+# API Documentation
 
-This is version 0.0.1 (Release canvas 1)
+This documentation was generated by Postman and can be found https://documenter.getpostman.com/view/8702366/SWLfcTEZ
+
+## Acknowledgments
+
+- [Alex Emedeme](https://github.com/AlexEntrepreneur) - Engineering Manager
+- [Lambda](https://lambdaschool.com/)
+
+## Version
+
+This is version 0.0.1
 
 ## License
 
@@ -163,11 +174,3 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-# API Documentation
-
-This documentation was generated by Postman and can be found https://documenter.getpostman.com/view/8702366/SWLfcTEZ
-
-## Acknowledgments
-
-- Lambda

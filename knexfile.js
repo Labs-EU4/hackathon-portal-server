@@ -11,10 +11,8 @@ require('dotenv').config();
 const parseFn = val => {
   return val === null ? null : moment(val).format('YYYY-MM-DD');
 };
-
 types.setTypeParser(builtins.TIMESTAMPTZ, parseFn);
 types.setTypeParser(builtins.TIMESTAMP, parseFn);
-
 module.exports = {
   development: {
     client: 'pg',
@@ -31,7 +29,6 @@ module.exports = {
     },
     useNullAsDefault: true
   },
-
   test: {
     client: 'pg',
     connection: process.env.DATABASE_TEST_URL,
@@ -54,7 +51,6 @@ module.exports = {
     },
     useNullAsDefault: true
   },
-
   production: {
     client: 'pg',
     connection: process.env.DATABASE_URL,
