@@ -62,6 +62,16 @@ describe('[POST] user as event owner can ADD/GET/DELETE team members to their ev
     expect(response.body.body.member.event_id).toEqual(Number(eventId));
     done();
   });
+  test('event owner can send invites', async done => {
+    const response = await app
+      .post(`/api/events/event-teams/invite/${eventId}`)
+      .set('Authorization', token)
+      .set('Content-Type', 'application/json')
+      .send({ email: mockUsers.validInput2.email, role_type: 'judge' });
+    expect(response.status).toEqual(200);
+    expect(response.body.message).toEqual('Invite sent successfully');
+    done();
+  });
   test('[POST] event owner can not add a person that is already in the team', async done => {
     const response4 = await app
       .post('/api/auth/register')
