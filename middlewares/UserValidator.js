@@ -52,25 +52,6 @@ module.exports = class UserValidator {
       email,
       password: hash
     });
-    if (id) {
-      if (role) {
-        await organizerModel.addTeamMember({
-          user_id: newUser.id,
-          event_id: id,
-          role_type: role
-        });
-        // eslint-disable-next-line require-atomic-updates
-        req.newuser = newUser;
-        next();
-      }
-      await teamModel.addTeamMate({
-        team_id: id,
-        team_member: newUser.id
-      });
-      // eslint-disable-next-line require-atomic-updates
-      req.newuser = newUser;
-      next();
-    }
     // eslint-disable-next-line require-atomic-updates
     req.newuser = newUser;
     next();
