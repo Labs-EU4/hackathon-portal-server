@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/LABS-EU3/hackton-frontend.svg?branch=develop)](https://travis-ci.org/LABS-EU3/hackton-frontend) [![Coverage Status](https://coveralls.io/repos/github/LABS-EU3/hackton-frontend/badge.svg?branch=develop)](https://coveralls.io/github/LABS-EU3/hackton-frontend?branch=develop) [![Netlify Status](https://api.netlify.com/api/v1/badges/0b0d93d0-04af-4a75-9a62-773eed6eac75/deploy-status)](https://app.netlify.com/sites/sharp-panini-3ec54b/deploys)
 
-# Hackton
+### Hackton
 
 A comprehensive portal for hackathons where students can submit their work and judges can evaluate in one place. It is an app that helps you organize and evaluate Hackathons.
 
@@ -8,7 +8,7 @@ A comprehensive portal for hackathons where students can submit their work and j
 
 A comprehensive portal for hackathons where students can submit their work and judges can evaluate in one place
 
-## Project Overview
+### Project Overview
 
 [Trello Board](https://trello.com/b/SEMsn9ik/hackathon)
 
@@ -16,7 +16,7 @@ A comprehensive portal for hackathons where students can submit their work and j
 
 [UX Design files](https://www.figma.com/file/4hAdkxUDAwWWJneMmbbNji/Mock-Ups?node-id=193%3A0)
 
-## Table of Content
+### Table of Content
 
 1. [Getting started](#getting-started 'Getting Started')
 
@@ -37,10 +37,10 @@ A comprehensive portal for hackathons where students can submit their work and j
 10. [Authors](#Authors 'Authors')
 11. [API Documentation](#API-Documentation 'API Documentation')
 12. [Acknowledgments](#acknowledgments 'Acknowledgments')
-13. [Versioning](#Versioning 'Versioning')
+13. [Version](#Version 'Version')
 14. [License](#License 'License')
 
-## Getting Started
+### Getting Started
 
 This repository contains only the frontend implementation of the Hackathon project. You can click **[here](https://github.com/Labs-EU4/hackathon-portal-server.git)** to check the backend implementation.
 
@@ -60,13 +60,13 @@ Create a `.env` file on your root directory and populate it based on examples in
 Next install the package dependencies by running
 
 ```bash
-yarn install
+npm install
 ```
 
 After that start or build the application by running
 
 ```bash
-yarn start # For a local development
+npm start # For a local development
 ```
 
 ### Enviroment Variables
@@ -77,20 +77,20 @@ The following should be inside `.env` file for the app to function correctly.
  REACT_APP_API_URL=https://hackathon-review-deployment.herokuapp.com/
 ```
 
-## Running the tests
+### Running the tests
 
 ```bash
-yarn test
+npm test
 
 ```
 
-# Contributing
+### Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
-## Issue/Bug Request
+### Issue/Bug Request
 
 **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
 
@@ -109,7 +109,7 @@ If you have developed a patch, bug fix, or new feature that would improve this a
 
 Remember that this project is licensed under the MIT license, and by submitting a pull request, you agree that your work will be, too.
 
-#### Pull Request Guidelines
+### Pull Request Guidelines
 
 - Ensure any install or build dependencies are removed before the end of the layer when doing a build.
 - Update the README.md with details of changes to the interface, including new plist variables, exposed ports, useful file locations and container parameters.
@@ -117,11 +117,11 @@ Remember that this project is licensed under the MIT license, and by submitting 
 - Include the relevant issue number, if applicable.
 - You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
 
-## Deployment
+### Deployment
 
 This project has been deployed with [Heroku] at .
 
-## Tech stack
+### Tech stack
 
 This app was built with
 
@@ -130,7 +130,7 @@ This app was built with
 - [Knex](http://knexjs.org/) - is a "batteries included" SQL query builder for Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, and Amazon Redshift designed to be flexible, portable, and fun to use..
 - [Postgresql](https://www.postgresql.org/) - PostgreSQL is a powerful, open source object-relational database system.
 
-## Authors
+### Authors
 
 |                                          [Anthony Campbell](https://anthonycampbell.dev)                                          |                                         [AbdelIdir ](https://github.com/AbdelIdir)                                          |                                               [Ekanem David](https://github.com/dueka)                                                |
 | :-------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------: |
@@ -148,20 +148,20 @@ This app was built with
 |                                                                     [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/ELAndrews)                                                                     |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/john-afolabi)                   |                        [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/KarimBertacche)                         |
 |                                            [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/emma-andrews-b26768169/)                                             | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/john-afolabi/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/karim-bertacche-64b270156/) |
 
-# API Documentation
+### API Documentation
 
 This documentation was generated by Postman and can be found https://documenter.getpostman.com/view/8702366/SWLfcTEZ
 
-## Acknowledgments
+#### Acknowledgments
 
 - [Alex Emedeme](https://github.com/AlexEntrepreneur) - Engineering Manager
 - [Lambda](https://lambdaschool.com/)
 
-## Version
+### Version
 
 This is version 0.0.1
 
-## License
+### License
 
 The MIT License (MIT)
 
