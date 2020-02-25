@@ -92,6 +92,17 @@ describe('api/auth/* endpoints', () => {
       });
     });
 
+    test('Should throw an error when email is not an email', async () => {
+      const res = await request
+        .post(`${baseUrl}/auth/login`)
+        .set('Content-Type', 'application/json')
+        .send(mockUsers.invalidEmail);
+      expect(res.statusCode).toBe(400);
+      expect(res.body.check).toEqual({
+        email: 'Invalid email'
+      });
+    });
+
     test('should throw an error when password is empty', async () => {
       const res = await request
         .post(`${baseUrl}/auth/login`)
