@@ -4,10 +4,33 @@ const request = require('supertest')(server);
 const db = require('../../data/dbConfig');
 const mockUsers = require('../../data/mock/auth.mock');
 
+const authControllers = require('./authControllers');
+
+const { register } = authControllers;
+
 const baseUrl = '/api';
 
 beforeEach(async () => {
   await db.raw('TRUNCATE TABLE event_categories,events, users CASCADE');
+});
+
+describe('Individual Functions', () => {
+  test('register function', async () => {
+    const req = {
+      params: {
+        id: 1
+      }
+    };
+
+    const res = {
+      status(statusCode) {
+        return {
+          json() {}
+        };
+      }
+    };
+    expect(register(req, res)).toBeUndefined();
+  });
 });
 
 describe('api/auth/* endpoints', () => {
