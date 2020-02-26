@@ -9,7 +9,6 @@ const {
 const UserValidator = require('../middlewares/UserValidator');
 const upload = require('../config/cloudinary');
 
-
 const router = Router();
 
 router.get('/', authenticate, handleGetUserList);

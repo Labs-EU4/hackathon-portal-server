@@ -82,7 +82,23 @@ describe('user can add an event and  post event project requirements, event part
     expect(response9.body.message).toEqual('Project edited successfully');
     done();
   });
-
+  test('[PUT] /project will fail if property provided is wrong', async done => {
+    const response9 = await request(server)
+      .post(`/api/events/projects/${projectId}`)
+      .set('Authorization', token)
+      .set('Content-Type', 'application/json')
+      .send({
+        project_title: 'policia',
+        participant_or_team_name: 'hack team',
+        event_id: 'lit',
+        project_writeups: 'Roles of techology in improving the police force',
+        git_url: 'plice.com',
+        video_url: 'rljei3uh3.com',
+        submitted_by: 2
+      });
+    expect(response9.status).toBe(404);
+    done();
+  });
   test('[GET] participants can [GET] projects', async done => {
     const response7 = await request(server)
       .post(`/api/events/${eventId}/projects`)
@@ -116,6 +132,10 @@ describe('user can add an event and  post event project requirements, event part
     done();
   });
 
+  test('Check if EventId is a number', () => {
+    expect(eventId).not.toBeNaN();
+  });
+
   test('participants can [DELETE] project submission', async done => {
     const response7 = await request(server)
       .post(`/api/events/${eventId}/projects`)
@@ -140,6 +160,7 @@ describe('user can add an event and  post event project requirements, event part
     );
     done();
   });
+
   test('None participants should not be allowed to submit projects', async done => {
     const response = await request(server)
       .post('/api/auth/register')
