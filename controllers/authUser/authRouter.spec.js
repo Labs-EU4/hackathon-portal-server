@@ -83,26 +83,6 @@ describe('Individual Functions', () => {
     });
   });
 
-  describe('passwordReset function', () => {
-    test('Returns a promise', () => {
-      const req = {
-        checked: {
-          verified: true,
-          id: 1
-        }
-      };
-
-      const res = {
-        status(statusCode) {
-          return {
-            json() {}
-          };
-        }
-      };
-      expect(passwordReset(req, res)).not.toBeUndefined();
-    });
-  });
-
   describe('newPassword function', () => {
     test('Returns a Promise', () => {
       const req = {
