@@ -6,7 +6,7 @@ const mockUsers = require('../../data/mock/auth.mock');
 
 const authControllers = require('./authControllers');
 
-const { register, Login } = authControllers;
+const { register, Login, passwordReset } = authControllers;
 
 const baseUrl = '/api';
 
@@ -51,6 +51,24 @@ describe('Individual Functions', () => {
       }
     };
     expect(Login(req, res)).toBeUndefined();
+  });
+
+  test('passwordReset function', async () => {
+    const req = {
+      checked: {
+        verified: true,
+        id: 1
+      }
+    };
+
+    const res = {
+      status(statusCode) {
+        return {
+          json() {}
+        };
+      }
+    };
+    expect(passwordReset(req, res)).not.toBeUndefined();
   });
 });
 
