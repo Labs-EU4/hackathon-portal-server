@@ -96,6 +96,26 @@ describe('Individual Functions', () => {
       expect(passwordReset(req, res)).not.toBeUndefined();
     });
   });
+
+  describe('newPassword function', () => {
+    test('Returns a Promise', () => {
+      const req = {
+        token: 1,
+        body: {
+          password: 'mockpassword'
+        }
+      };
+
+      const res = {
+        status(statusCode) {
+          return {
+            json() {}
+          };
+        }
+      };
+      expect(newPassword(req, res)).not.toBeUndefined();
+    });
+  });
 });
 
 describe('api/auth/* endpoints', () => {
