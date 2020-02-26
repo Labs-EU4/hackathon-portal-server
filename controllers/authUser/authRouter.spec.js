@@ -6,7 +6,7 @@ const mockUsers = require('../../data/mock/auth.mock');
 
 const authControllers = require('./authControllers');
 
-const { register, Login, passwordReset } = authControllers;
+const { register, Login, passwordReset, newPassword } = authControllers;
 
 const baseUrl = '/api';
 
@@ -15,60 +15,86 @@ beforeEach(async () => {
 });
 
 describe('Individual Functions', () => {
-  test('register function', async () => {
-    const req = {
-      params: {
-        id: 1
-      },
-      newuser: {
-        id: 1
-      }
-    };
+  describe('register function', () => {
+    test('Does not return an error', () => {
+      const req = {
+        params: {
+          id: 1
+        },
+        newuser: {
+          id: 1
+        }
+      };
 
-    const res = {
-      status(statusCode) {
-        return {
-          json() {}
-        };
-      }
-    };
-    expect(register(req, res)).toBeUndefined();
+      const res = {
+        status(statusCode) {
+          return {
+            json() {}
+          };
+        }
+      };
+      expect(register(req, res)).toBeUndefined();
+    });
   });
 
-  test('Login function', async () => {
-    const req = {
-      checked: {
-        verified: true,
-        id: 1
-      }
-    };
+  describe('Login function', () => {
+    test('Does not return an error', () => {
+      const req = {
+        checked: {
+          verified: true,
+          id: 1
+        }
+      };
 
-    const res = {
-      status(statusCode) {
-        return {
-          json() {}
-        };
-      }
-    };
-    expect(Login(req, res)).toBeUndefined();
+      const res = {
+        status(statusCode) {
+          return {
+            json() {}
+          };
+        }
+      };
+      expect(Login(req, res)).toBeUndefined();
+    });
   });
 
-  test('passwordReset function', async () => {
-    const req = {
-      checked: {
-        verified: true,
-        id: 1
-      }
-    };
+  describe('passwordReset function', () => {
+    test('Returns a promise', () => {
+      const req = {
+        checked: {
+          verified: true,
+          id: 1
+        }
+      };
 
-    const res = {
-      status(statusCode) {
-        return {
-          json() {}
-        };
-      }
-    };
-    expect(passwordReset(req, res)).not.toBeUndefined();
+      const res = {
+        status(statusCode) {
+          return {
+            json() {}
+          };
+        }
+      };
+      expect(passwordReset(req, res)).not.toBeUndefined();
+    });
+  });
+
+  describe('passwordReset function', () => {
+    test('Returns a promise', () => {
+      const req = {
+        checked: {
+          verified: true,
+          id: 1
+        }
+      };
+
+      const res = {
+        status(statusCode) {
+          return {
+            json() {}
+          };
+        }
+      };
+      expect(passwordReset(req, res)).not.toBeUndefined();
+    });
   });
 });
 
