@@ -6,7 +6,7 @@ const mockUsers = require('../../data/mock/auth.mock');
 
 const authControllers = require('./authControllers');
 
-const { register } = authControllers;
+const { register, Login } = authControllers;
 
 const baseUrl = '/api';
 
@@ -19,6 +19,9 @@ describe('Individual Functions', () => {
     const req = {
       params: {
         id: 1
+      },
+      newuser: {
+        id: 1
       }
     };
 
@@ -30,6 +33,24 @@ describe('Individual Functions', () => {
       }
     };
     expect(register(req, res)).toBeUndefined();
+  });
+
+  test('Login function', async () => {
+    const req = {
+      checked: {
+        verified: true,
+        id: 1
+      }
+    };
+
+    const res = {
+      status(statusCode) {
+        return {
+          json() {}
+        };
+      }
+    };
+    expect(Login(req, res)).toBeUndefined();
   });
 });
 
