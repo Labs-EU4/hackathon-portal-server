@@ -6,7 +6,13 @@ const mockUsers = require('../../data/mock/auth.mock');
 
 const authControllers = require('./authControllers');
 
-const { register, Login, passwordReset, newPassword } = authControllers;
+const {
+  register,
+  Login,
+  passwordReset,
+  newPassword,
+  confirmEmail
+} = authControllers;
 
 const baseUrl = '/api';
 
@@ -114,6 +120,23 @@ describe('Individual Functions', () => {
         }
       };
       expect(newPassword(req, res)).not.toBeUndefined();
+    });
+  });
+
+  describe('confirmEmail function', () => {
+    test('Returns a Promise', () => {
+      const req = {
+        token: 1
+      };
+
+      const res = {
+        status(statusCode) {
+          return {
+            json() {}
+          };
+        }
+      };
+      expect(confirmEmail(req, res)).not.toBeUndefined();
     });
   });
 });
