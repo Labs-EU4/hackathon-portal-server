@@ -1,13 +1,7 @@
-
-exports.seed = function(knex) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
-    });
+exports.seed = function (knex) {
+  return knex('event_categories').insert([
+    { category_name: 'Summer Hackaton' },
+    { category_name: 'Winner Hackaton' },
+    { category_name: 'Innovate Hackaton' }
+  ])
 };
