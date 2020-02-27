@@ -1,7 +1,10 @@
 exports.seed = function (knex) {
-  return knex('event_categories').insert([
-    { category_name: 'Summer Hackaton' },
-    { category_name: 'Winner Hackaton' },
-    { category_name: 'Innovate Hackaton' }
-  ])
+  return knex('event_categories').del()
+    .then(function () {
+      return knex('event_categories').insert([
+        { category_name: 'Summer Hackaton' },
+        { category_name: 'Winner Hackaton' },
+        { category_name: 'Innovate Hackaton' }
+      ])
+    })
 };

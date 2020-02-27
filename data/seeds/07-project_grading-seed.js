@@ -1,7 +1,7 @@
 
 exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex('project_grading').truncate()
+  return knex('project_grading').del()
     .then(function () {
       // Inserts seed entries
       return knex('project_grading').insert([

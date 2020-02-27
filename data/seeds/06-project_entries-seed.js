@@ -1,7 +1,7 @@
 
 exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex('project_entries').truncate()
+  return knex('project_entries').del()
     .then(function () {
       // Inserts seed entries
       return knex('project_entries').insert([
@@ -12,7 +12,7 @@ exports.seed = function (knex) {
           "video_url": "here.com",
           "git_url": "overThere.com",
           "project_writeups": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-          "submitted_by": 2
+          "submitted_by": 4
         },
         {
           "project_title": "Trojan Hash Defiance",
@@ -58,7 +58,7 @@ exports.seed = function (knex) {
           "git_url": "overThere.com",
           "project_writeups": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
           "submitted_by": 1
-        },
+        }
       ]);
     });
 };

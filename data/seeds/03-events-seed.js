@@ -2,7 +2,7 @@
 const moment = require('moment');
 
 exports.seed = function (knex) {
-  return knex('events').trucate()
+  return knex('events').del()
     .then(function () {
       return knex('events').insert([
         {
@@ -37,6 +37,7 @@ exports.seed = function (knex) {
           "guidelines": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           "participation_type": "both",
           "category_id": 2
-        }])
-    }      
+        }
+      ])
+    })
 };

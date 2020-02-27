@@ -2,7 +2,7 @@
 
 
 exports.seed = function (knex) {
-  return knex('tevent_participants').truncate()
+  return knex('event_participants').del()
     .then(function () {
       return knex('event_participants').insert([
         { "event_id": 1, "user_id": 1 },
