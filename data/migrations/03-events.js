@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-exports.up = function(knex) {
+exports.up = function (knex) {
   return knex.schema.createTable('events', table => {
     table.increments();
     table
@@ -14,7 +14,8 @@ exports.up = function(knex) {
 
     table
       .foreign('creator_id')
-      .references('users.id')
+      .references('id')
+      .inTable('users')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
     table.datetime('start_date').notNullable();
@@ -37,6 +38,6 @@ exports.up = function(knex) {
   });
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
   return knex.schema.dropTableIfExists('events');
 };
