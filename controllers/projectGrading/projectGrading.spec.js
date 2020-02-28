@@ -179,9 +179,9 @@ describe('judges can [POST, GET, PUT, DELETE] grade a submitted project', () => 
     done();
   });
   test('Check if projectId is a number', () => {
-    expect(projectId).not.toBeNaN();
+    expect(eventId).toBeNumber();
   });
   test('Check if eventId is a number', () => {
-    expect(eventId).not.toBeNaN();
+    expect(eventId).toBeNumber();
   });
 });
