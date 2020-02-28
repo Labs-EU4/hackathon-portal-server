@@ -94,6 +94,21 @@ describe('[POST] user as event owner can ADD/GET/DELETE team members to their ev
     expect(response.body.message).toEqual('This user is already in the team');
     done();
   });
+
+  test('[POST] event owner can not add themself to a team', async done => {
+    const response = await app
+      .post(`/api/events/${eventId}/team`)
+      .set('Authorization', token)
+      .set('Content-Type', 'application/json')
+      .send({ email: mockUsers.validInput1.email, role_type: 'judge' });
+
+    expect(response.status).toEqual(400);
+    expect(response.body.message).toEqual(
+      'You cannot add yourself to your team'
+    );
+    done();
+  });
+
   test('[POST] none owner can not add a person the team', async done => {
     const response4 = await app
       .post('/api/auth/register')
