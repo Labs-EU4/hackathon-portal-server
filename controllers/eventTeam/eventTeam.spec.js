@@ -50,6 +50,19 @@ beforeEach(async () => {
 });
 
 describe('[POST] user as event owner can ADD/GET/DELETE team members to their event', () => {
+  test('[POST][GET][DELETE] will fail if id is not a number', async done => {
+    const response = await app
+      .post(`/api/events/notnumber/team`)
+      .set('Authorization', token)
+      .set('Content-Type', 'application/json')
+      .send({ email: mockUsers.validInput3.email, role_type: 'judge' });
+    expect(response.status).toEqual(400);
+    expect(response.body.data[0]).toEqual({
+      id: 'Please provide a valid id,an id can only be a number'
+    });
+    done();
+  });
+
   test('event owner can add team mates', async done => {
     const response = await app
       .post(`/api/events/${eventId}/team`)
