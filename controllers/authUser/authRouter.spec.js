@@ -4,10 +4,121 @@ const request = require('supertest')(server);
 const db = require('../../data/dbConfig');
 const mockUsers = require('../../data/mock/auth.mock');
 
+const authControllers = require('./authControllers');
+
+const {
+  register,
+  Login,
+  passwordReset,
+  newPassword,
+  confirmEmail
+} = authControllers;
+
 const baseUrl = '/api';
 
 beforeEach(async () => {
   await db.raw('TRUNCATE TABLE event_categories,events, users CASCADE');
+});
+
+describe('Individual Functions', () => {
+  describe('register function', () => {
+    test('Does not return an error', () => {
+      const req = {
+        params: {
+          id: 1
+        },
+        newuser: {
+          id: 1
+        }
+      };
+
+      const res = {
+        status(statusCode) {
+          return {
+            json() {}
+          };
+        }
+      };
+      expect(register(req, res)).toBeUndefined();
+    });
+  });
+
+  describe('Login function', () => {
+    test('Does not return an error', () => {
+      const req = {
+        checked: {
+          verified: true,
+          id: 1
+        }
+      };
+
+      const res = {
+        status(statusCode) {
+          return {
+            json() {}
+          };
+        }
+      };
+      expect(Login(req, res)).toBeUndefined();
+    });
+  });
+
+  describe('passwordReset function', () => {
+    test('Returns a promise', () => {
+      const req = {
+        checked: {
+          verified: true,
+          id: 1
+        }
+      };
+
+      const res = {
+        status(statusCode) {
+          return {
+            json() {}
+          };
+        }
+      };
+      expect(passwordReset(req, res)).not.toBeUndefined();
+    });
+  });
+
+  describe('newPassword function', () => {
+    test('Returns a Promise', () => {
+      const req = {
+        token: 1,
+        body: {
+          password: 'mockpassword'
+        }
+      };
+
+      const res = {
+        status(statusCode) {
+          return {
+            json() {}
+          };
+        }
+      };
+      expect(newPassword(req, res)).not.toBeUndefined();
+    });
+  });
+
+  describe('confirmEmail function', () => {
+    test('Returns a Promise', () => {
+      const req = {
+        token: 1
+      };
+
+      const res = {
+        status(statusCode) {
+          return {
+            json() {}
+          };
+        }
+      };
+      expect(confirmEmail(req, res)).not.toBeUndefined();
+    });
+  });
 });
 
 describe('api/auth/* endpoints', () => {
