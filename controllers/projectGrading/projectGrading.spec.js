@@ -179,7 +179,7 @@ describe('judges can [POST, GET, PUT, DELETE] grade a submitted project', () => 
     done();
   });
   test('Check if projectId is a number', () => {
-    expect(projectId).toBeNumber();
+    expect(eventId).toBeNumber();
   });
   test('Check if eventId is a number', () => {
     expect(eventId).toBeNumber();
