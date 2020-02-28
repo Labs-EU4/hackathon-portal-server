@@ -128,6 +128,13 @@ module.exports = class EventValidator {
     const validity = await partparticipantsList.find(
       user => user.user_id === data.id
     );
+    if (email === req.decodedToken.email) {
+      return requestHandler.error(
+        res,
+        400,
+        'You cannot add yourself to your team'
+      );
+    }
     if (validity) {
       return requestHandler.error(res, 400, 'This user is a participant');
     }
