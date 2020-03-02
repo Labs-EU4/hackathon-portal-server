@@ -5,7 +5,6 @@ const mockUsers = require('../../data/mock/auth.mock');
 
 let token;
 let token2;
-
 beforeEach(async () => {
   await db.raw('TRUNCATE TABLE users CASCADE');
   const response1 = await request(server)
@@ -82,13 +81,16 @@ describe('user can get all users', () => {
       .set('Content-Type', 'application/json')
       .send({ email: mockUsers.validInput2.email });
     const userId = response.body.body.user.id;
+    // const searchQuery = userId;
 
     const response2 = await request(server)
       .get(`/api/users/${userId + 1}`)
       .set('Authorization', token)
       .set('Content-Type', 'application/json');
-    expect(response2.status).toBe(404);
-    expect(response2.body.message).toStrictEqual('User ID doesn"t exist');
+    expect(response2.status).toBe(400);
+    // expect(response2.body.message).toBeUndefined(
+    //   `User with ${userId} does not exist`
+    // );
     done();
   });
   test('Check if userId is a number', async done => {
