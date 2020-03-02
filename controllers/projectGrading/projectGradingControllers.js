@@ -43,23 +43,18 @@ async function handleProjectGradingEdit(req, res) {
   eventRubrics.map(rubricItem => {
     if (rubricItem === 'product_design') {
       totalRating = totalRating.concat(req.body.product_design);
-      return totalRating;
     } else if (rubricItem === 'functionality') {
       totalRating = totalRating.concat(req.body.functionality);
-      return totalRating;
     } else if (rubricItem === 'innovation') {
       totalRating = totalRating.concat(req.body.innovation);
-      return totalRating;
     } else if (rubricItem === 'product_fit') {
       totalRating = totalRating.concat(req.body.product_fit);
-      return totalRating;
     } else if (rubricItem === 'extensibility') {
       totalRating = totalRating.concat(req.body.extensibility);
-      return totalRating;
     } else if (rubricItem === 'presentation') {
       totalRating = totalRating.concat(req.body.presentation);
-      return totalRating;
     }
+    return totalRating;
   });
   let avgRubrics = 0;
   let finalAvgRubrics = 0;
@@ -117,23 +112,18 @@ async function handleprojectGradingPost(req, res) {
   eventRubrics.map(rubricItem => {
     if (rubricItem === 'product_design') {
       totalRating = totalRating.concat(req.body.product_design);
-      return totalRating;
     } else if (rubricItem === 'functionality') {
       totalRating = totalRating.concat(req.body.functionality);
-      return totalRating;
     } else if (rubricItem === 'innovation') {
       totalRating = totalRating.concat(req.body.innovation);
-      return totalRating;
     } else if (rubricItem === 'product_fit') {
       totalRating = totalRating.concat(req.body.product_fit);
-      return totalRating;
     } else if (rubricItem === 'extensibility') {
       totalRating = totalRating.concat(req.body.extensibility);
-      return totalRating;
     } else if (rubricItem === 'presentation') {
       totalRating = totalRating.concat(req.body.presentation);
-      return totalRating;
     }
+    return totalRating;
   });
   let avgRubrics = 0;
   let finalAvgRubrics = 0;
