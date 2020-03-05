@@ -4,7 +4,6 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const winston = require('../config/winston');
-const setReminder = require('../utils/reminder');
 // Schemas for JOI validation for ID
 
 dotenv.config();
