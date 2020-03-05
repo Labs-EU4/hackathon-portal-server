@@ -4,7 +4,7 @@
   "description": "This is a Labs project built in LabsEU4\r # hackton-server\r A comprehensive portal for hackathons where students can submit their work and judges can evaluate in one place",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env DB_ENV=test jest --detectOpenHandles --testTimeout=20000 --coverage --runInBand --forceExit",
+    "test": "cross-env DB_ENV=test jest --detectOpenHandles --testTimeout=60000 --coverage --runInBand --forceExit",
     "start": "node index.js",
     "server": "nodemon index.js",
     "pretest": "knex migrate:rollback --env=test && knex migrate:latest --env=test",
