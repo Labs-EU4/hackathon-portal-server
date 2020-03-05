@@ -10,7 +10,7 @@
     "pretest": "knex migrate:rollback --env=test && knex migrate:latest --env=test",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
-    "unmigrate": "knex migrate:rollback",
+    "unmigrate": "knex migrate:rollback--all",
     "coverage": "npm test && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
