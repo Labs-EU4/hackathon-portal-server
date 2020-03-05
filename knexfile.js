@@ -31,7 +31,7 @@ module.exports = {
   },
   test: {
     client: 'pg',
-    connection: process.env.HEROKU_POSTGRESQL_CRIMSON_URL,
+    connection: process.env.DATABASE_TEST_URL,
     migrations: {
       directory: './data/migrations'
     },
