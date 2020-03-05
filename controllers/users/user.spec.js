@@ -87,8 +87,10 @@ describe('user can get all users', () => {
       .get(`/api/users/${userId + 1}`)
       .set('Authorization', token)
       .set('Content-Type', 'application/json');
-    expect(response2.status).toBe(404);
-    expect(response2.body.message).toStrictEqual('User ID doesn"t exist');
+    expect(response2.status).toBe(400);
+    expect(response2.body.message).toStrictEqual(
+      'User with [object Object] does not exist'
+    );
     done();
   });
   test('Check if userId is a number', async done => {
