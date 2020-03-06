@@ -74,4 +74,33 @@ describe('user can get all users', () => {
     });
     done();
   });
+
+  test('User Can check if an ID in the database', async done => {
+    const response = await request(server)
+      .get('/api/users/search')
+      .set('Authorization', token)
+      .set('Content-Type', 'application/json')
+      .send({ email: mockUsers.validInput2.email });
+    const userId = response.body.body.user.id;
+
+    const response2 = await request(server)
+      .get(`/api/users/${userId + 1}`)
+      .set('Authorization', token)
+      .set('Content-Type', 'application/json');
+    expect(response2.status).toBe(400);
+    expect(response2.body.message).toStrictEqual(
+      'User with [object Object] does not exist'
+    );
+    done();
+  });
+  test('Check if userId is a number', async done => {
+    const response4 = await request(server)
+      .get('/api/users/search')
+      .set('Authorization', token)
+      .set('Content-Type', 'application/json')
+      .send({ email: mockUsers.validInput2.email });
+    const userId = response4.body.body.user.id;
+    expect(userId).toBeNumber();
+    done();
+  });
 });

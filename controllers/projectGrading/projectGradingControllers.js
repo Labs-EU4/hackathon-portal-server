@@ -41,26 +41,10 @@ async function handleProjectGradingEdit(req, res) {
   let totalRating = [];
 
   eventRubrics.map(rubricItem => {
-    if (rubricItem === 'product_design') {
-      totalRating = totalRating.concat(req.body.product_design);
-      return totalRating;
-    } else if (rubricItem === 'functionality') {
-      totalRating = totalRating.concat(req.body.functionality);
-      return totalRating;
-    } else if (rubricItem === 'innovation') {
-      totalRating = totalRating.concat(req.body.innovation);
-      return totalRating;
-    } else if (rubricItem === 'product_fit') {
-      totalRating = totalRating.concat(req.body.product_fit);
-      return totalRating;
-    } else if (rubricItem === 'extensibility') {
-      totalRating = totalRating.concat(req.body.extensibility);
-      return totalRating;
-    } else if (rubricItem === 'presentation') {
-      totalRating = totalRating.concat(req.body.presentation);
-      return totalRating;
-    }
+    totalRating = totalRating.concat(req.body[rubricItem]);
+    return totalRating;
   });
+
   let avgRubrics = 0;
   let finalAvgRubrics = 0;
   function average(nums) {
@@ -83,6 +67,7 @@ async function handleProjectGradingEdit(req, res) {
     judge_comments: req.body.judge_comments,
     average_rating: finalAvgRubrics
   };
+
   await db
     .updateGrading(id, editedProjectGraging)
     .then(data => {
@@ -97,6 +82,7 @@ async function handleProjectGradingEdit(req, res) {
       return requestHandler.error(res, 500, ` server error ${error.message}`);
     });
 }
+
 
 async function handleprojectGradingPost(req, res) {
   const { userId } = req.decodedToken;
@@ -114,27 +100,12 @@ async function handleprojectGradingPost(req, res) {
       res.status(500).json({ message: error.message });
     });
   let totalRating = [];
+
   eventRubrics.map(rubricItem => {
-    if (rubricItem === 'product_design') {
-      totalRating = totalRating.concat(req.body.product_design);
-      return totalRating;
-    } else if (rubricItem === 'functionality') {
-      totalRating = totalRating.concat(req.body.functionality);
-      return totalRating;
-    } else if (rubricItem === 'innovation') {
-      totalRating = totalRating.concat(req.body.innovation);
-      return totalRating;
-    } else if (rubricItem === 'product_fit') {
-      totalRating = totalRating.concat(req.body.product_fit);
-      return totalRating;
-    } else if (rubricItem === 'extensibility') {
-      totalRating = totalRating.concat(req.body.extensibility);
-      return totalRating;
-    } else if (rubricItem === 'presentation') {
-      totalRating = totalRating.concat(req.body.presentation);
-      return totalRating;
-    }
+    totalRating = totalRating.concat(req.body[rubricItem]);
+    return totalRating;
   });
+
   let avgRubrics = 0;
   let finalAvgRubrics = 0;
   function average(nums) {

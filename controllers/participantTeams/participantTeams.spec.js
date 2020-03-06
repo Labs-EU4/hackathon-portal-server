@@ -4,8 +4,8 @@ const server = require('../../api/server');
 const db = require('../../data/dbConfig');
 const mockEvents = require('../../data/mock/event.mock');
 const mockCategory = require('../../data/mock/categories.mock');
-const mockProjects = require('../../data/mock/projects.mock');
-const mockGrading = require('../../data/mock/projectGrading.mock');
+// const mockProjects = require('../../data/mock/projects.mock');
+// const mockGrading = require('../../data/mock/projectGrading.mock');
 const mockUser = require('../../data/mock/auth.mock');
 const mockParticipantTeams = require('../../data/mock/participantTeams');
 
@@ -15,7 +15,7 @@ let token;
 let eventId;
 let particpanToken1;
 let particpanToken2;
-let particpanToken3;
+// let particpanToken3;
 let teamId;
 let teamArray;
 
@@ -87,6 +87,9 @@ describe('participants  can [POST, GET, PUT, DELETE] a team and teammates', () =
       .send({ team_member: userId });
     expect(teamMateRegister.status).toEqual(201);
     done();
+  });
+  test('Check if teamId is a number', () => {
+    expect(teamId).not.toBeNaN();
   });
   test('[GET] participant can get created  team by event id', async done => {
     const getAllTeam = await app

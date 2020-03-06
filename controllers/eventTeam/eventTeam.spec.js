@@ -50,6 +50,19 @@ beforeEach(async () => {
 });
 
 describe('[POST] user as event owner can ADD/GET/DELETE team members to their event', () => {
+  test('[POST][GET][DELETE] will fail if id is not a number', async done => {
+    const response = await app
+      .post(`/api/events/notnumber/team`)
+      .set('Authorization', token)
+      .set('Content-Type', 'application/json')
+      .send({ email: mockUsers.validInput3.email, role_type: 'judge' });
+    expect(response.status).toEqual(400);
+    expect(response.body.data[0]).toEqual({
+      id: 'Please provide a valid id,an id can only be a number'
+    });
+    done();
+  });
+
   test('event owner can add team mates', async done => {
     const response = await app
       .post(`/api/events/${eventId}/team`)
@@ -60,6 +73,16 @@ describe('[POST] user as event owner can ADD/GET/DELETE team members to their ev
     expect(response.body.message).toEqual('New member added successfully');
     expect(response.body.body.member.role_type).toEqual('judge');
     expect(response.body.body.member.event_id).toEqual(Number(eventId));
+    done();
+  });
+  test('event owner can send invites', async done => {
+    const response = await app
+      .post(`/api/events/event-teams/invite/${eventId}`)
+      .set('Authorization', token)
+      .set('Content-Type', 'application/json')
+      .send({ email: mockUsers.validInput2.email, role_type: 'judge' });
+    expect(response.status).toEqual(200);
+    expect(response.body.message).toEqual('Invite sent successfully');
     done();
   });
   test('[POST] event owner can not add a person that is already in the team', async done => {
@@ -84,6 +107,21 @@ describe('[POST] user as event owner can ADD/GET/DELETE team members to their ev
     expect(response.body.message).toEqual('This user is already in the team');
     done();
   });
+
+  test('[POST] event owner can not add themself to a team', async done => {
+    const response = await app
+      .post(`/api/events/${eventId}/team`)
+      .set('Authorization', token)
+      .set('Content-Type', 'application/json')
+      .send({ email: mockUsers.validInput1.email, role_type: 'judge' });
+
+    expect(response.status).toEqual(400);
+    expect(response.body.message).toEqual(
+      'You cannot add yourself to your team'
+    );
+    done();
+  });
+
   test('[POST] none owner can not add a person the team', async done => {
     const response4 = await app
       .post('/api/auth/register')

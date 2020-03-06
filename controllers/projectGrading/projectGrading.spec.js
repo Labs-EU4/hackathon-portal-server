@@ -124,6 +124,7 @@ describe('judges can [POST, GET, PUT, DELETE] grade a submitted project', () => 
     expect(response14.status).toEqual(200);
     done();
   });
+
   test('[DELETE] judges can DELETE grades', async done => {
     const response13 = await app
       .post(`/api/events/projects/${projectId}/grading`)
@@ -176,5 +177,11 @@ describe('judges can [POST, GET, PUT, DELETE] grade a submitted project', () => 
       .set('Content-Type', 'application/json');
     expect(response15.status).toEqual(200);
     done();
+  });
+  test('Check if projectId is a number', () => {
+    expect(eventId).toBeNumber();
+  });
+  test('Check if eventId is a number', () => {
+    expect(eventId).toBeNumber();
   });
 });

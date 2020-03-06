@@ -4,13 +4,13 @@
   "description": "This is a Labs project built in LabsEU4\r # hackton-server\r A comprehensive portal for hackathons where students can submit their work and judges can evaluate in one place",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env DB_ENV=test jest --detectOpenHandles --testTimeout=20000 --coverage --runInBand --forceExit",
+    "test": "cross-env DB_ENV=test jest --detectOpenHandles --testTimeout=60000 --coverage --runInBand --forceExit",
     "start": "node index.js",
     "server": "nodemon index.js",
     "pretest": "knex migrate:rollback --env=test && knex migrate:latest --env=test",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
-    "unmigrate": "knex migrate:rollback",
+    "unmigrate": "knex migrate:rollback--all",
     "coverage": "npm test && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
@@ -34,6 +34,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.21.2",
+    "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
     "knex": "^0.20.4",
@@ -48,7 +49,7 @@
     "passport-github2": "^0.1.11",
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth20": "^2.0.0",
-    "pg": "^7.14.0",
+    "pg": "^7.18.2",
     "pg-types": "^3.0.0",
     "prettier": "^1.19.1",
     "validator": "^12.1.0",
@@ -64,6 +65,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
     "jest": "^24.9.0",
+    "jest-extended": "^0.11.5",
     "nodemon": "^2.0.2",
     "supertest": "^4.0.2"
   }
