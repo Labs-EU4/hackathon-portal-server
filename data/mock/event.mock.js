@@ -20,7 +20,12 @@ module.exports = {
       'extensibility',
       'presentation'
     ],
-    requirements: ['video_url', 'git_url', 'project_writeups']
+    requirements: ['video_url', 'git_url', 'project_writeups'],
+    prize: 'Dell XPS',
+    difficulty_level: 'beginner',
+    start_time: '15:30:00',
+    end_time: '16:30:00',
+    participant_limit: 10
   },
   event2: {
     event_title: 'All the Hacks 2021 Hackathon',
@@ -41,6 +46,10 @@ module.exports = {
       'extensibility',
       'presentation'
     ],
-    requirements: ['video_url', 'git_url', 'project_writeups']
+    requirements: ['video_url', 'git_url', 'project_writeups'],
+    prize: 'Macbook Pro',
+    difficulty_level: 'beginner',
+    start_time: '10:00:00',
+    end_time: '16:00:00'
   }
 };

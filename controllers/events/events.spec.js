@@ -1,17 +1,16 @@
 const request = require('supertest');
-const moment = require('moment');
 const server = require('../../api/server');
 const db = require('../../data/dbConfig');
+const eventMock = require('../../data/mock/event.mock');
 
 let token;
+
+const { event1, event2, event3ShortDescription } = eventMock;
 
 const addUser = {
   email: 'test2@email.com',
   password: 'test1234'
 };
-
-const startDate = moment(new Date('2019-12-23'), 'MMM D LTS').format();
-const endDate = moment(new Date('2020-01-03'), 'MMM D LTS').format();
 
 beforeEach(async () => {
   await db.raw('TRUNCATE TABLE event_categories,users, events CASCADE');
@@ -36,24 +35,7 @@ describe('user can add, edit, delete and get an event', () => {
       .post('/api/events')
       .set('Authorization', token)
       .set('Content-Type', 'application/json')
-      .send({
-        event_title: 'Winter hackathon 2019',
-        event_description:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        start_date: startDate,
-        end_date: endDate,
-        location: 'remote',
-        guidelines:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        participation_type: 'both',
-        category_id: categoryId,
-        prize: 'DELL XPS LAPTOP',
-        difficulty_level: 'beginner',
-        start_time: '15:30:00',
-        end_time: '16:30:00',
-        participant_limit: 10
-      });
-
+      .send({ ...event1, category_id: categoryId });
     expect(response3.status).toBe(201);
   });
   test('user can [GET] /events', async () => {
@@ -74,44 +56,14 @@ describe('user can add, edit, delete and get an event', () => {
       .post('/api/events')
       .set('Authorization', token)
       .set('Content-Type', 'application/json')
-      .send({
-        event_title: 'Winter hackathon 2019',
-        event_description:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        start_date: startDate,
-        end_date: endDate,
-        location: 'remote',
-        guidelines:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        participation_type: 'both',
-        category_id: categoryId,
-        prize: 'DELL XPS LAPTOP',
-        difficulty_level: 'beginner',
-        start_time: '15:30:00',
-        end_time: '16:30:00'
-      });
+      .send({ ...event1, category_id: categoryId });
     expect(response3.status).toBe(201);
     const eventId = response3.body.body.event_id;
     const response4 = await request(server)
       .put(`/api/events/${eventId}`)
       .set('Authorization', token)
       .set('Content-Type', 'application/json')
-      .send({
-        event_title: 'NaijaHacks 2019',
-        event_description:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        start_date: startDate,
-        end_date: endDate,
-        location: 'remote',
-        guidelines:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        participation_type: 'both',
-        category_id: categoryId,
-        prize: 'Macbook',
-        difficulty_level: 'beginner',
-        start_time: '12:30:00',
-        end_time: '18:30:00'
-      });
+      .send({ ...event2, category_id: categoryId });
     expect(response4.status).toBe(200);
   });
   test('user can [DELETE] /events', async () => {
@@ -126,23 +78,7 @@ describe('user can add, edit, delete and get an event', () => {
       .post('/api/events')
       .set('Authorization', token)
       .set('Content-Type', 'application/json')
-      .send({
-        event_title: 'Winter hackathon 2019',
-        event_description:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        start_date: startDate,
-        end_date: endDate,
-        location: 'remote',
-        guidelines:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        participation_type: 'both',
-        category_id: categoryId,
-        prize: 'DELL XPS LAPTOP',
-        difficulty_level: 'beginner',
-        start_time: '15:30:00',
-        end_time: '16:30:00',
-        participant_limit: 10
-      });
+      .send({ ...event1, category_id: categoryId });
     expect(response3.status).toBe(201);
     const eventId = response3.body.body.event_id;
     const response4 = await request(server)
@@ -162,22 +98,7 @@ describe('user can add, edit, delete and get an event', () => {
     const response3 = await request(server)
       .post('/api/events')
       .set('Authorization', token)
-      .send({
-        event_title: 'Winter hackathon 2019',
-        event_description:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        end_date: endDate,
-        location: 'remote',
-        guidelines:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        participation_type: 'both',
-        category_id: categoryId,
-        prize: 'DELL XPS LAPTOP',
-        difficulty_level: 'beginner',
-        start_time: '15:30:00',
-        end_time: '16:30:00',
-        participant_limit: 10
-      });
+      .send({ ...event1, category_id: categoryId, guidelines: undefined });
     expect(response3.status).toBe(400);
   });
   test('[POST] /events will fail if event descriptions and guidelines is less than 50 characters', async () => {
@@ -192,19 +113,11 @@ describe('user can add, edit, delete and get an event', () => {
       .post('/api/events')
       .set('authorization', token)
       .send({
-        event_title: 'W',
-        event_description: 'A hack',
-        start_date: startDate,
-        end_date: endDate,
-        location: 'remote',
-        guidelines: 'A hack',
-        participation_type: 'both',
+        ...event1,
         category_id: categoryId,
-        prize: 'DELL XPS LAPTOP',
-        difficulty_level: 'beginner',
-        start_time: '15:30:00',
-        end_time: '16:30:00',
-        participant_limit: 10
+        event_title: 'W',
+        event_description: 'Short',
+        guidelines: 'Short'
       });
 
     expect(response3.status).toBe(400);
@@ -228,23 +141,10 @@ describe('user can add, edit, delete and get an event', () => {
       .set('authorization', token)
       .set('Content-Type', 'application/json')
       .send({
-        event_title: 'Winter hackathon 2019',
-        event_description:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        start_date: startDate,
-        end_date: endDate,
-        location: 'remote',
-        guidelines:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        participation_type: 'easy',
+        ...event1,
         category_id: categoryId,
-        prize: 'DELL XPS LAPTOP',
-        difficulty_level: 'beginner',
-        start_time: '15:30:00',
-        end_time: '16:30:00',
-        participant_limit: 10
+        participation_type: 'any'
       });
-
     expect(response3.status).toBe(400);
     expect(response3.body.message).toStrictEqual({
       participation_type:
@@ -263,41 +163,14 @@ describe('user can add, edit, delete and get an event', () => {
       .post('/api/events')
       .set('authorization', token)
       .set('Content-Type', 'application/json')
-      .send({
-        event_title: 'Winter hackathon 2019',
-        event_description:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        start_date: startDate,
-        end_date: endDate,
-        location: 'remote',
-        guidelines:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        participation_type: 'both',
-        category_id: categoryId,
-        prize: 'DELL XPS LAPTOP',
-        difficulty_level: 'beginner',
-        start_time: '15:30:00',
-        end_time: '16:30:00',
-        participant_limit: 10
-      });
+      .send({ ...event1, category_id: categoryId });
 
     expect(response3.status).toBe(201);
     const response4 = await request(server)
       .post('/api/events')
       .set('authorization', token)
       .set('Content-Type', 'application/json')
-      .send({
-        event_title: 'Winter hackathon 2019',
-        event_description:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        start_date: startDate,
-        end_date: endDate,
-        location: 'remote',
-        guidelines:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        participation_type: 'both',
-        category_id: categoryId
-      });
+      .send({ ...event1, category_id: categoryId });
 
     expect(response4.status).toBe(409);
     expect(response4.body.message).toStrictEqual(
@@ -316,23 +189,7 @@ describe('user can add, edit, delete and get an event', () => {
       .post('/api/events')
       .set('authorization', token)
       .set('Content-Type', 'application/json')
-      .send({
-        event_title: 'Winter hackathon 2019',
-        event_description:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        start_date: startDate,
-        end_date: endDate,
-        location: 'remote',
-        guidelines:
-          'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
-        participation_type: 'both',
-        category_id: categoryId,
-        prize: 'DELL XPS LAPTOP',
-        difficulty_level: 'beginner',
-        start_time: '15:30:00',
-        end_time: '16:30:00',
-        participant_limit: 10
-      });
+      .send({ ...event1, category_id: categoryId });
     expect(response3.status).toBe(201);
     const response4 = await request(server)
       .get('/api/events/user-events')
