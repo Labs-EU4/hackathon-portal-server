@@ -46,7 +46,12 @@ describe('user can add, edit, delete and get an event', () => {
         guidelines:
           'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
         participation_type: 'both',
-        category_id: categoryId
+        category_id: categoryId,
+        prize: 'DELL XPS LAPTOP',
+        difficulty_level: 'beginner',
+        start_time: '15:30:00',
+        end_time: '16:30:00',
+        participant_limit: 10
       });
 
     expect(response3.status).toBe(201);
@@ -79,7 +84,11 @@ describe('user can add, edit, delete and get an event', () => {
         guidelines:
           'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
         participation_type: 'both',
-        category_id: categoryId
+        category_id: categoryId,
+        prize: 'DELL XPS LAPTOP',
+        difficulty_level: 'beginner',
+        start_time: '15:30:00',
+        end_time: '16:30:00'
       });
     expect(response3.status).toBe(201);
     const eventId = response3.body.body.event_id;
@@ -97,7 +106,11 @@ describe('user can add, edit, delete and get an event', () => {
         guidelines:
           'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
         participation_type: 'both',
-        category_id: categoryId
+        category_id: categoryId,
+        prize: 'Macbook',
+        difficulty_level: 'beginner',
+        start_time: '12:30:00',
+        end_time: '18:30:00'
       });
     expect(response4.status).toBe(200);
   });
@@ -123,7 +136,12 @@ describe('user can add, edit, delete and get an event', () => {
         guidelines:
           'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
         participation_type: 'both',
-        category_id: categoryId
+        category_id: categoryId,
+        prize: 'DELL XPS LAPTOP',
+        difficulty_level: 'beginner',
+        start_time: '15:30:00',
+        end_time: '16:30:00',
+        participant_limit: 10
       });
     expect(response3.status).toBe(201);
     const eventId = response3.body.body.event_id;
@@ -153,7 +171,12 @@ describe('user can add, edit, delete and get an event', () => {
         guidelines:
           'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
         participation_type: 'both',
-        category_id: categoryId
+        category_id: categoryId,
+        prize: 'DELL XPS LAPTOP',
+        difficulty_level: 'beginner',
+        start_time: '15:30:00',
+        end_time: '16:30:00',
+        participant_limit: 10
       });
     expect(response3.status).toBe(400);
   });
@@ -176,7 +199,12 @@ describe('user can add, edit, delete and get an event', () => {
         location: 'remote',
         guidelines: 'A hack',
         participation_type: 'both',
-        category_id: categoryId
+        category_id: categoryId,
+        prize: 'DELL XPS LAPTOP',
+        difficulty_level: 'beginner',
+        start_time: '15:30:00',
+        end_time: '16:30:00',
+        participant_limit: 10
       });
 
     expect(response3.status).toBe(400);
@@ -209,7 +237,12 @@ describe('user can add, edit, delete and get an event', () => {
         guidelines:
           'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
         participation_type: 'easy',
-        category_id: categoryId
+        category_id: categoryId,
+        prize: 'DELL XPS LAPTOP',
+        difficulty_level: 'beginner',
+        start_time: '15:30:00',
+        end_time: '16:30:00',
+        participant_limit: 10
       });
 
     expect(response3.status).toBe(400);
@@ -240,7 +273,12 @@ describe('user can add, edit, delete and get an event', () => {
         guidelines:
           'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
         participation_type: 'both',
-        category_id: categoryId
+        category_id: categoryId,
+        prize: 'DELL XPS LAPTOP',
+        difficulty_level: 'beginner',
+        start_time: '15:30:00',
+        end_time: '16:30:00',
+        participant_limit: 10
       });
 
     expect(response3.status).toBe(201);
@@ -288,7 +326,12 @@ describe('user can add, edit, delete and get an event', () => {
         guidelines:
           'A hackathon (also known as a hack day, hackfest or codefest) is a design sprint-like event in which computer programmers and others involved in software development, including graphic designers, interface designers, project managers, and others, often including domain experts, collaborate intensively on software',
         participation_type: 'both',
-        category_id: categoryId
+        category_id: categoryId,
+        prize: 'DELL XPS LAPTOP',
+        difficulty_level: 'beginner',
+        start_time: '15:30:00',
+        end_time: '16:30:00',
+        participant_limit: 10
       });
     expect(response3.status).toBe(201);
     const response4 = await request(server)
