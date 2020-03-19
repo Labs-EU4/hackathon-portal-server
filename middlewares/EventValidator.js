@@ -89,11 +89,7 @@ module.exports = class EventValidator {
       start_date,
       end_date,
       location,
-      category_id,
-      prize,
-      difficulty_level,
-      start_time,
-      end_time
+      category_id
     } = req.body;
     if (!id) {
       const exists = await eventModel.findByTitle(event_title);
@@ -113,11 +109,7 @@ module.exports = class EventValidator {
       start_date,
       end_date,
       location,
-      category_id,
-      prize,
-      difficulty_level,
-      start_time,
-      end_time
+      category_id
     });
 
     if (Object.keys(check).length > 0) {
