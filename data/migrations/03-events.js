@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-exports.up = function(knex) {
+exports.up = function (knex) {
   return knex.schema.createTable('events', table => {
     table.increments();
     table
@@ -25,11 +25,6 @@ exports.up = function(knex) {
     table
       .enu('participation_type', ['individual', 'team', 'both'])
       .notNullable();
-    table.text('prize').notNullable();
-    table.enu('difficulty_level', ['beginner', 'intermediate', 'advanced']);
-    table.time('start_time').notNullable();
-    table.time('end_time').notNullable();
-    table.integer('participant_limit');
     table
       .integer('category_id')
       .unsigned()
@@ -43,6 +38,6 @@ exports.up = function(knex) {
   });
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
   return knex.schema.dropTableIfExists('events');
 };

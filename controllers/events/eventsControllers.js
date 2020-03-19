@@ -69,12 +69,7 @@ function handleEventsEdit(req, res) {
     category_id: req.body.category_id,
     tag_name: req.body.tag_name,
     rubrics: req.body.rubrics,
-    requirements: req.body.requirements,
-    prize: req.body.prize,
-    difficulty_level: req.body.difficulty_level,
-    start_time: req.body.start_time,
-    end_time: req.body.end_time,
-    participant_limit: req.body.participant_limit
+    requirements: req.body.requirements
   };
 
   db.update(id, editedEvent)
@@ -107,12 +102,7 @@ function handleEventsPost(req, res) {
     category_id: req.body.category_id,
     tag_name: req.body.tag_name,
     rubrics: req.body.rubrics,
-    requirements: req.body.requirements,
-    prize: req.body.prize,
-    difficulty_level: req.body.difficulty_level,
-    start_time: req.body.start_time,
-    end_time: req.body.end_time,
-    participant_limit: req.body.participant_limit
+    requirements: req.body.requirements
   };
   db.add(event)
     .then(data => {
