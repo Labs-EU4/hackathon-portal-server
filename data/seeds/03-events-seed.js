@@ -112,7 +112,7 @@ exports.seed = function(knex) {
           difficulty_level: 'beginner',
           start_time: '12:30:00',
           end_time: '16:30:00',
-          participant_limit: 10
+          participant_limit: 9
         }
       ]);
     });
