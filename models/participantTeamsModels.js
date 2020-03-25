@@ -69,13 +69,22 @@ async function findTeamMate(id) {
 
   return foundTeamMember;
 }
-async function removeTeamMate(id) {
+async function removeTeamMate(teammateId, teamId) {
   const removeTeamMember = await db('participant_team_members')
-    .where({
-      team_member: id
+    .whereIn({
+      team_member: teammateId
     })
+    .whereIn({ team_id: teamId })
     .delete();
   return removeTeamMember;
+}
+
+async function removeAllTeamMates(teamId) {
+  const removeAllMembers = await db('participant_team_members')
+    .where({ team_id: teamId })
+    .delete();
+
+  return removeAllMembers;
 }
 
 module.exports = {
@@ -88,5 +97,6 @@ module.exports = {
   // Participant Team Members models
   addTeamMate,
   findTeamMate,
-  removeTeamMate
+  removeTeamMate,
+  removeAllTeamMates
 };

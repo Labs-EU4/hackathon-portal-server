@@ -221,7 +221,7 @@ router.get('/participant-teams/:id', authenticate, handleTeamGet);
 router.get('/participant-teams/:id/members', authenticate, handleTeamMateGet);
 router.delete('/participant-teams/:id', authenticate, handleTeamDelete);
 router.delete(
-  '/participant-teams/member/:id',
+  '/participant-teams/:teamId/members/:teammateId',
   authenticate,
   handleTeamMateDelete
 );

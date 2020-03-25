@@ -1,10 +1,10 @@
 /* eslint-disable func-names */
 const moment = require('moment');
 
-exports.seed = function(knex) {
+exports.seed = function (knex) {
   return knex('events')
     .del()
-    .then(function() {
+    .then(function () {
       return knex('events').insert([
         {
           event_title: 'CovHack',
@@ -83,12 +83,12 @@ exports.seed = function(knex) {
           event_description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna alnnniqua.',
           creator_id: 5,
-          start_date: moment(new Date('2020-01-21'), 'MMM D LTS').format(),
-          end_date: moment(new Date('2020-01-21'), 'MMM D LTS').format(),
+          start_date: moment(new Date('2020-05-21'), 'MMM D LTS').format(),
+          end_date: moment(new Date('2020-05-21'), 'MMM D LTS').format(),
           location: 'Paris, France',
           guidelines:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore maggggna aliqua.',
-          participation_type: 'both',
+          participation_type: 'team',
           category_id: 2,
           prize: 'Macbook Pro',
           difficulty_level: 'beginner',
@@ -101,12 +101,12 @@ exports.seed = function(knex) {
           event_description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           creator_id: 6,
-          start_date: moment(new Date('2020-01-21'), 'MMM D LTS').format(),
-          end_date: moment(new Date('2020-01-21'), 'MMM D LTS').format(),
+          start_date: moment(new Date('2020-06-21'), 'MMM D LTS').format(),
+          end_date: moment(new Date('2020-06-21'), 'MMM D LTS').format(),
           location: 'Rome,Italy',
           guidelines:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          participation_type: 'both',
+          participation_type: 'individual',
           category_id: 3,
           prize: '20kg of coffee',
           difficulty_level: 'beginner',

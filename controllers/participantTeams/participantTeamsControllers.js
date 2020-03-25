@@ -7,19 +7,24 @@ const requestHandler = require('../../utils/requestHandler');
 
 async function handleTeamDelete(req, res) {
   const { id } = req.params;
-  await db
-    .RemoveTeam(id)
-    .then(data => {
-      return requestHandler.success(
-        res,
-        200,
-        'Team removed successfully',
-        data
-      );
+  await db.removeAllTeamMates(id)
+    .then(tm => {
+      db.RemoveTeam(id)
+        .then(data => {
+          return requestHandler.success(
+            res,
+            200,
+            'Team removed successfully',
+            data
+          );
+        })
+        .catch(error => {
+          return requestHandler.error(res, 500, ` server error ${error.message}`);
+        });
     })
     .catch(error => {
       return requestHandler.error(res, 500, ` server error ${error.message}`);
-    });
+    })
 }
 
 async function handleTeamEdit(req, res) {
@@ -117,9 +122,10 @@ async function handleTeamMateGet(req, res) {
 }
 
 async function handleTeamMateDelete(req, res) {
-  const { id } = req.params;
+  const { teammateId } = req.params.member;
+  const { teamId } = req.params.team;
   await db
-    .removeTeamMate(id)
+    .removeTeamMate(teammateId, teamId)
     .then(data => {
       return requestHandler.success(
         res,
