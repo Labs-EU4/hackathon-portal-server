@@ -69,12 +69,11 @@ async function findTeamMate(id) {
 
   return foundTeamMember;
 }
-async function removeTeamMate(teammateId, teamId) {
+async function removeTeamMate(id) {
   const removeTeamMember = await db('participant_team_members')
-    .whereIn({
-      team_member: teammateId
+    .where({
+      team_member: id
     })
-    .whereIn({ team_id: teamId })
     .delete();
   return removeTeamMember;
 }
