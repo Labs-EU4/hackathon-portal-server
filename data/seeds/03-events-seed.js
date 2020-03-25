@@ -59,6 +59,42 @@ exports.seed = function(knex) {
           start_time: '12:30:00',
           end_time: '16:30:00',
           participant_limit: 8
+        },
+        {
+          event_title: 'World tournament',
+          event_description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          creator_id: 2,
+          start_date: moment(new Date('2020-01-21'), 'MMM D LTS').format(),
+          end_date: moment(new Date('2020-01-21'), 'MMM D LTS').format(),
+          location: 'Stratford, UK',
+          guidelines:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          participation_type: 'both',
+          category_id: 2,
+          prize: '2000$',
+          difficulty_level: 'beginner',
+          start_time: '12:30:00',
+          end_time: '16:30:00',
+          participant_limit: 20
+        },
+        {
+          event_title: 'World tournament',
+          event_description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          creator_id: 2,
+          start_date: moment(new Date('2020-01-21'), 'MMM D LTS').format(),
+          end_date: moment(new Date('2020-01-21'), 'MMM D LTS').format(),
+          location: 'Stratford, UK',
+          guidelines:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          participation_type: 'both',
+          category_id: 2,
+          prize: '2000$',
+          difficulty_level: 'beginner',
+          start_time: '12:30:00',
+          end_time: '16:30:00',
+          participant_limit: 20
         }
       ]);
     });
