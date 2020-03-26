@@ -67,7 +67,7 @@ exports.seed = function(knex) {
           creator_id: 4,
           start_date: moment(new Date('2020-01-21'), 'MMM D LTS').format(),
           end_date: moment(new Date('2020-01-21'), 'MMM D LTS').format(),
-          location: 'Stratford, UK',
+          location: 'London, UK',
           guidelines:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           participation_type: 'both',
