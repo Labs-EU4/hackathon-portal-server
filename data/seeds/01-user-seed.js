@@ -1,6 +1,5 @@
 /* eslint-disable func-names */
 const bcrypt = require('bcrypt');
-
 exports.seed = function (knex) {
   return knex('users').del()
     .then(function () {
@@ -23,7 +22,7 @@ exports.seed = function (knex) {
           username: "ELA",
           password: bcrypt.hashSync('Password1234', 15),
           bio: "Grumpy ol' lady",
-          email: "ELA.examle@email.com",
+          email: "ELA.example@email.com",
           fullname: "Em Andrews",
         },
         {
@@ -46,7 +45,42 @@ exports.seed = function (knex) {
           bio: "Pizza + Coffee = Life",
           email: "KB.example@email.com",
           fullname: "Karim Bert",
-        }
+        },
+        {
+          username: "Matty",
+          password: bcrypt.hashSync('Password1234', 15),
+          bio: "New and excited",
+          email: "Matty.email@email.com",
+          fullname: "Matty Matterson",
+        },
+        {
+          username: "SonniBoi",
+          password: bcrypt.hashSync('Password1234', 15),
+          bio: "Sun God and proud!",
+          email: "Sonny.email@email.com",
+          fullname: "Sonny Andrews",
+        },
+        {
+          username: "AJ",
+          password: bcrypt.hashSync('Password1234', 15),
+          bio: " ",
+          email: "AJ.email@email.com",
+          fullname: "Andrew Jackson",
+        },
+        {
+          username: "Wallace",
+          password: bcrypt.hashSync('Password1234', 15),
+          bio: "Investor by day, coder by night",
+          email: "wally@google.com",
+          fullname: "Wallace Wallace",
+        },
+        {
+          username: "'Bob'",
+          password: bcrypt.hashSync('Password1234', 15),
+          bio: "Silent but deadly",
+          email: "BobLee@mail.com",
+          fullname: "Simon Lee",
+        },
       ]);
     });
 };
